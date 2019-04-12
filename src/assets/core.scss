@@ -1,0 +1,13 @@
+.is-container-large
+{
+    max-width: 1110px;
+}
+
+.is-container-large,
+.is-container-medium,
+.is-container-small
+{
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
