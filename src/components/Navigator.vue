@@ -1,14 +1,16 @@
 <template>
     <div class="is-navbar-container">
         <div class="is-brand">
-            <b class="is-logo">Blog</b>
+            <!-- <b class="is-logo"><router-link to="/">My Blog</router-link></b> -->
+            <h1 class="is-logo">
+                <router-link to="/">My Blog</router-link>
+            </h1>
         </div>
         <div class="is-navbar">
             <nav>
                 <ul>
-                    <li><router-link to="/">Home</router-link></li>
                     <li><router-link to="/about">About</router-link></li>
-                    <!-- <li><router-link to="/tags">Tags</router-link></li> -->
+                    <li><router-link to="/tags">Tags</router-link></li>
                 </ul>
             </nav>
         </div>
@@ -19,5 +21,15 @@
 .is-navbar-container
 {
     margin: 1.2rem;
+}
+
+.is-brand h1
+{
+    font-size: 1.8rem;
+    a
+    {
+        color: black;
+        &:hover { color: #ee2455; }
+    }
 }
 </style>
