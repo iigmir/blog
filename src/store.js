@@ -14,7 +14,17 @@ export default new Vuex.Store({
     },
     getters:
     {
-        contents_from_new_to_old: state => state.contents.reverse()
+        contents_by_groups(state)
+        {
+            let slice_groups = function(a,current_index)
+            {
+                let chunk_size = 5;
+                let per_item = state.contents.slice( current_index, current_index+chunk_size );
+                return current_index % chunk_size === 0 ? per_item : null;
+            };
+            let groups = state.contents.map( (a,b) => slice_groups(a,b) ).filter( c => c );
+            return groups;
+        }
     },
     mutations:
     {

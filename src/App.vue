@@ -5,14 +5,12 @@
     </div>
 </template>
 
-<style lang="scss">
-</style>
-
 <script>
 import Navigator from "./components/Navigator.vue";
 import { mapActions } from "vuex";
 
 export default {
+    name: "App",
     components: {
         Navigator
     },
@@ -23,10 +21,7 @@ export default {
     },
     methods:
     {
-        ...mapActions([
-            "ajax_get_categories","ajax_get_contents"
-        ]),
-
+        ...mapActions(["ajax_get_categories","ajax_get_contents"]),
     }
 }
 </script>
