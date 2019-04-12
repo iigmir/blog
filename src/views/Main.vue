@@ -25,7 +25,7 @@ export default {
     data()
     {
         return {
-            page_index: 0
+            test: null
         }
     },
     computed:
