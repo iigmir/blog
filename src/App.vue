@@ -10,10 +10,23 @@
 
 <script>
 import Navigator from "./components/Navigator.vue";
+import { mapActions } from "vuex";
 
 export default {
     components: {
         Navigator
+    },
+    created()
+    {
+        this.ajax_get_categories();
+        this.ajax_get_contents();
+    },
+    methods:
+    {
+        ...mapActions([
+            "ajax_get_categories","ajax_get_contents"
+        ]),
+
     }
 }
 </script>

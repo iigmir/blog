@@ -1,7 +1,7 @@
 <template>
     <div class="is-navbar-container">
         <div class="is-brand">
-            <b class="is-logo">Brand</b>
+            <b class="is-logo">Blog</b>
         </div>
         <div class="is-navbar">
             <nav>
