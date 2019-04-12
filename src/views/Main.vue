@@ -9,29 +9,19 @@
                 <span v-if="item.category_id.length < 1" class="empty-label"></span>
             </article>
         </div>
-        <nav class="pager">
-            <a href="#" class="is-prev"
-                v-bind:class="{ 'is-active': page_index === 0 }"
-                v-on:click="switch_pages_by_arrow('prev')"></a>
-            <a
-                v-for="page_number in contents_pages"
-                v-bind:key="page_number"
-                v-bind:class="{ 'is-active': page_number === page_index + 1 }"
-                v-on:click="switch_pages_by_number(page_number)">
-                {{ page_number }}
-            </a>
-            <a href="#" class="is-next"
-                v-bind:class="{ 'is-active': page_index === contents_pages - 1 }"
-                v-on:click="switch_pages_by_arrow('next')"></a>
-        </nav>
+        <footpage-pager />
     </main>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import FootpagePager from "../components/FooterPager.vue";
 
 export default {
     name: "Main",
+    components: {
+        FootpagePager
+    },
     data()
     {
         return {
@@ -40,12 +30,8 @@ export default {
     },
     computed:
     {
-        ...mapState(["categories", "contents"]),
+        ...mapState(["categories", "contents", "main_page_index"]),
         ...mapGetters(["contents_by_groups"]),
-        contents_pages()
-        {
-            return this.contents_by_groups.length;
-        },
         contents_from_new_by_group()
         {
             let contents = [...this.contents_by_groups];
@@ -56,7 +42,7 @@ export default {
             let contents = [];
             if( this.contents_from_new_by_group.length > 0 )
             {
-                contents = [ ...this.contents_from_new_by_group[this.page_index] ];
+                contents = [ ...this.contents_from_new_by_group[this.main_page_index] ];
             }
             return contents.reverse();
         },
@@ -77,28 +63,6 @@ export default {
             return [];
         }
     },
-    methods:
-    {
-        switch_pages_by_number(input)
-        {
-            this.page_index = input - 1;
-        },
-        switch_pages_by_arrow(dir)
-        {
-            let direction_limit = {
-                prev: 0 ,
-                next: this.contents_pages - 1
-            };
-            let direction = {
-                prev: -1,
-                next: +1
-            };
-            if( this.page_index !== direction_limit[dir] )
-            {
-                this.page_index = this.page_index + direction[dir];
-            }
-        }
-    }
 }
 </script>
 

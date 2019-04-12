@@ -11,6 +11,7 @@ export default new Vuex.Store({
     {
         categories: [],
         contents: [],
+        main_page_index: 0
     },
     getters:
     {
@@ -36,6 +37,10 @@ export default new Vuex.Store({
         {
             state.contents = payload;
         },
+        set_main_page_index(state, input)
+        {
+            state.main_page_index = input;
+        }
     },
     actions:
     {
