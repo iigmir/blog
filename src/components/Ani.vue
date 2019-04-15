@@ -26,6 +26,16 @@ button
     {
         width: 100%;
     }
+    &::before
+    {
+        transition-delay: 0.2s;
+        right: 0;
+    }
+    &::after
+    {
+        left: 0;
+        transition-delay: 0.2s;
+    }
     span
     {
         display: block;
@@ -62,17 +72,6 @@ button
             height: 100%;
             transition-delay: 0s;
         }
-    }
-
-    &::before
-    {
-        transition-delay: 0.2s;
-        right: 0;
-    }
-    &::after
-    {
-        left: 0;
-        transition-delay: 0.2s;
     }
 }
 </style>
