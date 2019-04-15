@@ -11,6 +11,7 @@ export default new Vuex.Store({
     {
         categories: [],
         contents: [],
+        article: "",
         main_page_index: 0
     },
     getters:
@@ -56,5 +57,13 @@ export default new Vuex.Store({
             let ajax = axios.get( api );
             ajax.then( response => commit("set_contents", response.data ) );
         },
+        ajax_get_article({ commit }, input_id)
+        {
+            let gap = ["","00","0"];
+            let filename = gap[ input_id.length ] + input_id + ".md";
+            let api = `${ repo_api }/articles/${ filename }`;
+            let ajax = axios.get( api );
+            ajax.then( response => commit("set_article", response.data ) );
+        }
     }
 });
