@@ -2,13 +2,16 @@
     <main>
         <div class="article-container">
             <article class="card" v-for="(item, index) in current_articles" :key="item.id">
-                <h2> {{ item.title }} </h2>
-                <span class="label" v-for="(item, tag_id) in current_categories[index]" :key="tag_id">
-                    {{ item }}
-                </span>
-                <span v-if="item.category_id.length < 1" class="empty-label"></span>
+                <section>
+                    <h2> {{ item.title }} </h2>
+                    <span class="label" v-for="(item, tag_id) in current_categories[index]" :key="tag_id">
+                        {{ item }}
+                    </span>
+                    <span v-if="item.category_id.length < 1" class="empty-label"></span>
+                </section>
             </article>
         </div>
+        <Ani />
         <footpage-pager />
     </main>
 </template>
@@ -16,11 +19,13 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 import FootpagePager from "../components/FooterPager.vue";
+import Ani from "../components/Ani.vue";
 
 export default {
     name: "Main",
     components: {
-        FootpagePager
+        FootpagePager,
+        Ani
     },
     data()
     {
