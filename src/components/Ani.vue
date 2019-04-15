@@ -7,16 +7,10 @@
 <style lang="scss" scoped>
 button
 {
-    // display: inline-block;
-    // background: none;
-    // border: none;
-    // font-size: 18px;
-    // margin: 20px 30px;
-    // background: rgba(0,0,0,0.09);
-    color: red;
+    border: none;
+    border-radius: 1rem;
     cursor: pointer;
     position: relative;
-    background-color: sliver;
     &::before, 
     &::after
     {
@@ -25,7 +19,7 @@ button
         height: 2px;
         position: absolute;
         transition: all 0.2s linear;
-        background: red;
+        background: violet;
     }
     &:hover::before,
     &:hover::after
@@ -44,42 +38,9 @@ button
             height:0;
             position: absolute;
             transition: all 0.2s linear;
-            background: blue;
+            background: violet;
         }
-    }
-    &:hover span::before,
-    &:hover span::after
-    {
-        height: 100%;
-    }
-}
 
-.btn-1
-{
-    &::before
-    {
-        transition-delay: 0.2s;
-        right: 0;
-        // top: 0;
-    }
-    &::after
-    {
-        left: 0;
-        // bottom: 0;
-        transition-delay: 0.2s;
-    }
-    &:hover::before,
-    &:hover::after
-    {
-        transition-delay: 0s;
-    }
-    &:hover span::before,
-    &:hover span::after
-    {
-        transition-delay: 0.2s;
-    }
-    span
-    {
         &::before
         {
             transition-delay: 0s;
@@ -92,6 +53,23 @@ button
             bottom: 0;
             transition-delay: 0s;
         }
+    }
+    &:hover span::before,
+    &:hover span::after
+    {
+        height: 100%;
+        transition-delay: 0s;
+    }
+
+    &::before
+    {
+        transition-delay: 0.2s;
+        right: 0;
+    }
+    &::after
+    {
+        left: 0;
+        transition-delay: 0.2s;
     }
 }
 </style>
