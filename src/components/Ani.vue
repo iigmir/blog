@@ -38,7 +38,7 @@ button
             height:0;
             position: absolute;
             transition: all 0.2s linear;
-            background: violet;
+            background: blue;
         }
 
         &::before
@@ -54,11 +54,14 @@ button
             transition-delay: 0s;
         }
     }
-    &:hover span::before,
-    &:hover span::after
+    &:hover span
     {
-        height: 100%;
-        transition-delay: 0s;
+        &::before,
+        &::after
+        {
+            height: 100%;
+            transition-delay: 0s;
+        }
     }
 
     &::before
