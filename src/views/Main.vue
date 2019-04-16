@@ -69,23 +69,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.pager
-{
-    position: fixed;
-    bottom: 0;
-    a
-    {
-        cursor: pointer;
-        &.is-active
-        {
-            cursor: not-allowed;
-        }
-    }
-}
-
 article
 {
-    // padding: 0.3rem;
     margin: 1rem 0 1rem 0;
     position: relative;
     cursor: pointer;
@@ -97,7 +82,7 @@ article
         height: 2px;
         position: absolute;
         transition: all 0.2s linear;
-        background: blue;
+        background: silver;
     }
     &:hover::before,
     &:hover::after
@@ -117,7 +102,8 @@ article
     section
     {
         display: block;
-        padding: 25px 80px;
+        padding: 1rem 2rem;
+        transition: font-size 0.2s linear;
         &::before, 
         &::after
         {
@@ -126,7 +112,7 @@ article
             height:0;
             position: absolute;
             transition: all 0.2s linear;
-            background: blue;
+            background: silver;
         }
 
         &::before
@@ -144,11 +130,27 @@ article
     }
     &:hover section
     {
+        font-size: 1.2rem;
+        transition: font-size 0.2s linear;
         &::before,
         &::after
         {
             height: 100%;
             transition-delay: 0.2s;
+        }
+    }
+}
+
+.pager
+{
+    position: fixed;
+    bottom: 0;
+    a
+    {
+        cursor: pointer;
+        &.is-active
+        {
+            cursor: not-allowed;
         }
     }
 }
