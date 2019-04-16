@@ -83,12 +83,74 @@ export default {
     }
 }
 
-.card
+article
 {
+    // padding: 0.3rem;
     margin: 1rem 0 1rem 0;
-    border: violet 0.1rem solid;
-    border-radius: 0.8rem;
-    padding: 0.3rem;
+    position: relative;
+    cursor: pointer;
+    &::before, 
+    &::after
+    {
+        content:"";
+        width: 0;
+        height: 2px;
+        position: absolute;
+        transition: all 0.2s linear;
+        background: blue;
+    }
+    &:hover::before,
+    &:hover::after
+    {
+        width: 100%;
+    }
+    &::before
+    {
+        transition-delay: 0s;
+        left: 0;
+    }
+    &::after
+    {
+        right: 0;
+        transition-delay: 0s;
+    }
+    section
+    {
+        display: block;
+        padding: 25px 80px;
+        &::before, 
+        &::after
+        {
+            content:"";
+            width:2px;
+            height:0;
+            position: absolute;
+            transition: all 0.2s linear;
+            background: blue;
+        }
+
+        &::before
+        {
+            transition-delay: 0s;
+            right: 0;
+            top: 0;
+        }
+        &::after
+        {
+            left: 0;
+            bottom: 0;
+            transition-delay: 0s;
+        }
+    }
+    &:hover section
+    {
+        &::before,
+        &::after
+        {
+            height: 100%;
+            transition-delay: 0.2s;
+        }
+    }
 }
 
 .label
