@@ -8,7 +8,6 @@
 button
 {
     border: none;
-    border-radius: 1rem;
     cursor: pointer;
     position: relative;
     &::before, 
@@ -19,7 +18,7 @@ button
         height: 2px;
         position: absolute;
         transition: all 0.2s linear;
-        background: violet;
+        background: blue;
     }
     &:hover::before,
     &:hover::after
@@ -61,7 +60,7 @@ button
         {
             left: 0;
             bottom: 0;
-            transition-delay: 0.2s;
+            transition-delay: 0s;
         }
     }
     &:hover span

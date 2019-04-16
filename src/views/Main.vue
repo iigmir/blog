@@ -11,7 +11,6 @@
                 </section>
             </article>
         </div>
-        <Ani />
         <footpage-pager />
     </main>
 </template>
@@ -19,13 +18,11 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 import FootpagePager from "../components/FooterPager.vue";
-import Ani from "../components/Ani.vue";
 
 export default {
     name: "Main",
     components: {
-        FootpagePager,
-        Ani
+        FootpagePager
     },
     data()
     {
