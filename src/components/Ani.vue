@@ -29,11 +29,11 @@ button
     &::before
     {
         transition-delay: 0.2s;
-        right: 0;
+        left: 0;
     }
     &::after
     {
-        left: 0;
+        right: 0;
         transition-delay: 0.2s;
     }
     span
@@ -54,13 +54,14 @@ button
         &::before
         {
             transition-delay: 0s;
-            left: 0;
-            top: 0;
+            right: 0;
+            bottom: 0;
+            
         }
         &::after
         {
-            right: 0;
-            bottom: 0;
+            left: 0;
+            top: 0;
             transition-delay: 0s;
         }
     }
