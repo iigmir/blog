@@ -28,13 +28,13 @@ button
     }
     &::before
     {
-        transition-delay: 0.2s;
+        transition-delay: 0s;
         left: 0;
     }
     &::after
     {
         right: 0;
-        transition-delay: 0.2s;
+        transition-delay: 0s;
     }
     span
     {
@@ -55,14 +55,13 @@ button
         {
             transition-delay: 0s;
             right: 0;
-            bottom: 0;
-            
+            top: 0;
         }
         &::after
         {
             left: 0;
-            top: 0;
-            transition-delay: 0s;
+            bottom: 0;
+            transition-delay: 0.2s;
         }
     }
     &:hover span
@@ -71,7 +70,7 @@ button
         &::after
         {
             height: 100%;
-            transition-delay: 0s;
+            transition-delay: 0.2s;
         }
     }
 }
