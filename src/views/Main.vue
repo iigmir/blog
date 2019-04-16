@@ -2,7 +2,7 @@
     <main>
         <div class="article-container">
             <article class="card" v-for="(item, index) in current_articles" :key="item.id">
-                <section>
+                <section v-on:click="read_article(item.id)">
                     <h2> {{ item.title }} </h2>
                     <span class="label" v-for="(item, tag_id) in current_categories[index]" :key="tag_id">
                         {{ item }}
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import FootpagePager from "../components/FooterPager.vue";
 
 export default {
@@ -65,6 +65,15 @@ export default {
             return [];
         }
     },
+    methods:
+    {
+        ...mapActions(["ajax_get_article"]),
+        read_article(id)
+        {
+            this.ajax_get_article(id);
+            // Link to article
+        }
+    }
 }
 </script>
 

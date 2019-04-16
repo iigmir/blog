@@ -41,7 +41,11 @@ export default new Vuex.Store({
         set_main_page_index(state, input)
         {
             state.main_page_index = input;
-        }
+        },
+        set_article(state, payload)
+        {
+            state.article =  payload;
+        },
     },
     actions:
     {
@@ -60,8 +64,8 @@ export default new Vuex.Store({
         ajax_get_article({ commit }, input_id)
         {
             let gap = ["","00","0"];
-            let filename = gap[ input_id.length ] + input_id + ".md";
-            let api = `${ repo_api }/articles/${ filename }`;
+            let filename = gap[ String(input_id).length ] + String(input_id) + ".md";
+            let api = `${ repo_api }articles/${ filename }`;
             let ajax = axios.get( api );
             ajax.then( response => commit("set_article", response.data ) );
         }
