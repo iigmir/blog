@@ -1,27 +1,34 @@
 <template>
     <main>
-        <article>
-            {{ article_centent }}
+        <article v-if="article_empty === false">
+            <vue-markdown :source="article_centent"></vue-markdown>
         </article>
     </main>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
+import VueMarkdown from "vue-markdown";
 
 export default {
     name: "Article",
-    computed:
-    {
-        ...mapState(["article_centent"])
+    components: { VueMarkdown },
+    computed: {
+        ...mapState(["article_centent"]),
+        article_empty() { return this.article_centent === "" }
     },
     methods:
     {
-        ...mapMutations(["set_article_centent"])
+        ...mapMutations(["set_article_centent"]),
+        ...mapActions(["ajax_get_article"]),
     },
-    beforeDestroy()
+    created()
     {
-        this.set_article_centent("");
-    }
+        if( this.article_empty )
+        {
+            this.ajax_get_article( this.$route.params.id );
+        }
+    },
+    beforeDestroy() { this.set_article_centent(""); }
 }
 </script>

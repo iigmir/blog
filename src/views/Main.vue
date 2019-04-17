@@ -67,13 +67,8 @@ export default {
         {
             this.set_data_loading(true);
             this.ajax_get_article(id);
-            // Link to article
             this.$router.push({ name: "Article", params: { id } });
         }
-    },
-    beforeDestroy()
-    {
-        this.set_data_loading(true);
     }
 }
 </script>
