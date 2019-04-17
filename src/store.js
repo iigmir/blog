@@ -11,7 +11,7 @@ export default new Vuex.Store({
     {
         categories: [],
         contents: [],
-        article: "",
+        article_centent: "",
         main_page_index: 0,
         data_loading: false,
     },
@@ -43,10 +43,9 @@ export default new Vuex.Store({
         {
             state.main_page_index = input;
         },
-        set_article(state, string)
+        set_article_centent(state, string)
         {
-            state.article =  string;
-            state.data_loading = false;
+            state.article_centent =  string;
         },
         set_data_loading(state, bool)
         {
@@ -79,7 +78,7 @@ export default new Vuex.Store({
             let ajax = axios.get( api );
             ajax.then( response =>
             {
-                commit("set_article", response.data );
+                commit("set_article_centent", response.data );
                 commit("set_data_loading", false );
             });
         }

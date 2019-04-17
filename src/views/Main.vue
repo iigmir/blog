@@ -68,7 +68,7 @@ export default {
             this.set_data_loading(true);
             this.ajax_get_article(id);
             // Link to article
-            // router.push({ name: "Article", params: { userId: '123' } })
+            this.$router.push({ name: "Article", params: { id } });
         }
     },
     beforeDestroy()
