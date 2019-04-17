@@ -12,7 +12,8 @@ export default new Vuex.Store({
         categories: [],
         contents: [],
         article: "",
-        main_page_index: 0
+        main_page_index: 0,
+        data_loading: false,
     },
     getters:
     {
@@ -30,21 +31,27 @@ export default new Vuex.Store({
     },
     mutations:
     {
-        set_categories(state, payload)
+        set_categories(state, objects)
         {
-            state.categories =  payload;
+            state.categories =  objects;
         },
-        set_contents(state, payload)
+        set_contents(state, objects)
         {
-            state.contents = payload;
+            state.contents = objects;
+            state.data_loading = false;
         },
         set_main_page_index(state, input)
         {
             state.main_page_index = input;
         },
-        set_article(state, payload)
+        set_article(state, string)
         {
-            state.article =  payload;
+            state.article =  string;
+            state.data_loading = false;
+        },
+        set_data_loading(state, bool)
+        {
+            state.data_loading = bool;
         },
     },
     actions:

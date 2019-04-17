@@ -65,14 +65,22 @@ export default {
             return [];
         }
     },
+    beforeCreate()
+    {
+        this.set_data_loading(true);
+    },
     methods:
     {
-        ...mapActions(["ajax_get_article"]),
+        ...mapActions(["ajax_get_article","set_data_loading"]),
         read_article(id)
         {
             this.ajax_get_article(id);
             // Link to article
         }
+    },
+    beforeDestroy()
+    {
+        // this.set_data_loading(true);
     }
 }
 </script>

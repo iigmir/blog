@@ -1,5 +1,6 @@
 <template>
     <div id="app" class="is-container-large">
+        <loading-modal />
         <Navigator />
         <router-view/>
     </div>
@@ -7,12 +8,14 @@
 
 <script>
 import Navigator from "./components/Navigator.vue";
+import LoadingModal from "./components/LoadingModal.vue";
 import { mapActions } from "vuex";
 
 export default {
     name: "App",
     components: {
-        Navigator
+        Navigator,
+        LoadingModal
     },
     created()
     {
