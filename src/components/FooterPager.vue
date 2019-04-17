@@ -1,17 +1,17 @@
 <template>
     <nav class="pager">
         <a href="#" class="is-prev"
-            v-bind:class="{ 'is-active': main_page_index === 0 }"
+            v-bind:class="{ 'is-disabled': main_page_index === 0 }"
             v-on:click="switch_pages_by_arrow('prev')"></a>
         <a
             v-for="page_number in contents_pages"
             v-bind:key="page_number"
-            v-bind:class="{ 'is-active': main_page_index === page_number - 1 }"
+            v-bind:class="{ 'is-disabled': main_page_index === page_number - 1 }"
             v-on:click="switch_pages_by_number(page_number)">
             {{ page_number }}
         </a>
         <a href="#" class="is-next"
-            v-bind:class="{ 'is-active': main_page_index === contents_pages - 1 }"
+            v-bind:class="{ 'is-disabled': main_page_index === contents_pages - 1 }"
             v-on:click="switch_pages_by_arrow('next')"></a>
     </nav>
 </template>
@@ -58,7 +58,7 @@ export default {
     a
     {
         cursor: pointer;
-        &.is-active
+        &.is-disabled
         {
             cursor: not-allowed;
         }
