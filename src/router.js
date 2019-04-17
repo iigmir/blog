@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Main from "./views/Main.vue";
 import Test from "./views/Test.vue";
+import Arta from "./views/Arta.vue";
 
 Vue.use(Router);
 
@@ -22,10 +23,11 @@ export default new Router({
             // which is lazy-loaded when the route is visited.
             component: () => import(/* webpackChunkName: "about" */ "./views/About.vue")
         },
-        {
+        {   // To prevent confuse between <article> (HTMLe element) and <Article> (The elemant), 
+            // This component names Arta: <Arta>
             path: "/article/:id",
             name: "Article",
-            component: Test
+            component: Arta
         },
         {
             path: "/tags",

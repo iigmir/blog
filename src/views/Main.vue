@@ -16,19 +16,13 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 import FootpagePager from "../components/FooterPager.vue";
 
 export default {
     name: "Main",
     components: {
         FootpagePager
-    },
-    data()
-    {
-        return {
-            test: null
-        }
     },
     computed:
     {
@@ -65,22 +59,21 @@ export default {
             return [];
         }
     },
-    beforeCreate()
-    {
-        this.set_data_loading(true);
-    },
     methods:
     {
         ...mapActions(["ajax_get_article","set_data_loading"]),
+        ...mapMutations(["set_data_loading"]),
         read_article(id)
         {
+            this.set_data_loading(true);
             this.ajax_get_article(id);
             // Link to article
+            // router.push({ name: "Article", params: { userId: '123' } })
         }
     },
     beforeDestroy()
     {
-        // this.set_data_loading(true);
+        this.set_data_loading(true);
     }
 }
 </script>

@@ -38,7 +38,6 @@ export default new Vuex.Store({
         set_contents(state, objects)
         {
             state.contents = objects;
-            state.data_loading = false;
         },
         set_main_page_index(state, input)
         {
@@ -66,7 +65,11 @@ export default new Vuex.Store({
         {
             let api = repo_api + "info-files/contents.json";
             let ajax = axios.get( api );
-            ajax.then( response => commit("set_contents", response.data ) );
+            ajax.then( response =>
+            {
+                commit("set_contents", response.data );
+                commit("set_data_loading", false );
+            });
         },
         ajax_get_article({ commit }, input_id)
         {
@@ -74,7 +77,11 @@ export default new Vuex.Store({
             let filename = gap[ String(input_id).length ] + String(input_id) + ".md";
             let api = `${ repo_api }articles/${ filename }`;
             let ajax = axios.get( api );
-            ajax.then( response => commit("set_article", response.data ) );
+            ajax.then( response =>
+            {
+                commit("set_article", response.data );
+                commit("set_data_loading", false );
+            });
         }
     }
 });

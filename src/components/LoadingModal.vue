@@ -15,7 +15,6 @@
 import { mapState } from "vuex";
 export default {
     name: "LoadingModal",
-    data(){ return{ testing: true } },
     computed: {
         ...mapState(["data_loading"])
     }
