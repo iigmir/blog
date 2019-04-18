@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Main from "./views/Main.vue";
-import Test from "./views/Test.vue";
+// import Test from "./views/Test.vue";
 import Arta from "./views/Arta.vue";
+import Tags from "./views/Tags.vue";
 
 Vue.use(Router);
 
@@ -30,14 +31,9 @@ export default new Router({
             component: Arta
         },
         {
-            path: "/tags",
+            path: "/tags/:id?",
             name: "Tags",
-            component: Test
-        },
-        {
-            path: "/tag/:id",
-            name: "Tag",
-            component: Test
-        },
+            component: Tags
+        }
     ]
 })
