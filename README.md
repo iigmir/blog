@@ -1,5 +1,7 @@
 # blog
 
+My blog. Only has program, articles are from [another repo](https://github.com/iigmir/blog-source).
+
 ## Project setup
 ```
 npm install
