@@ -44,12 +44,18 @@ export default {
             if( this.$route.params.id !== undefined )
             {
                 filtered_tag = this.categories.filter( category => route(category) );
-                if( filtered_tag.length > 0 )
-                {
-                    this.change_tag( filtered_tag[0] )
-                }
+                if( filtered_tag.length > 0 ) { this.change_tag( filtered_tag[0] ) }
             }
         }
+    },
+    created()
+    {
+        if( this.$route.params.id !== undefined )
+        {
+            let selected = this.categories.filter( tag => String(tag.id) === String(this.$route.params.id) )[0];
+            this.change_tag(selected);
+        }
+        return;
     },
     methods:
     {
