@@ -175,4 +175,9 @@ article
 {
     margin-bottom: 6rem;
 }
+
+@media only screen and (max-width: 767px)
+{   // Is mobile
+    article section { padding: 0.2rem; }
+}
 </style>

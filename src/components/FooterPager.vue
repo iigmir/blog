@@ -4,12 +4,14 @@
             v-bind:class="{ 'is-disabled': main_page_index === 0 }"
             v-on:click="switch_pages_by_arrow('prev')"></a>
         <a
+            class="desktop-mode"
             v-for="page_number in contents_pages"
             v-bind:key="page_number"
-            v-bind:class="{ 'is-disabled': main_page_index === page_number - 1 }"
+            v-bind:class="{ 'is-active': main_page_index === page_number - 1 }"
             v-on:click="switch_pages_by_number(page_number)">
             {{ page_number }}
         </a>
+        <span class="is-current mobile-mode"> {{ main_page_index + 1 }} of {{ contents_pages }} </span>
         <a href="#" class="is-next"
             v-bind:class="{ 'is-disabled': main_page_index === contents_pages - 1 }"
             v-on:click="switch_pages_by_arrow('next')"></a>
@@ -63,5 +65,17 @@ export default {
             cursor: not-allowed;
         }
     }
+}
+
+@media only screen and (max-width: 767px)
+{   // Is mobile
+    .desktop-mode { display: none ; }
+    .mobile-mode  { display: block; }
+}
+
+@media only screen and (min-width: 768px)
+{   // Is desktop
+    .mobile-mode  { display: none ; }
+    .desktop-mode { display: block; }
 }
 </style>
