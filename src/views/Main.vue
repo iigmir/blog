@@ -4,7 +4,10 @@
             <article class="card" v-for="(item, index) in current_articles" :key="item.id">
                 <section v-on:click="read_article(item.id)">
                     <h2> {{ item.title }} </h2>
-                    <span class="label" v-for="(item, tag_id) in current_categories[index]" :key="tag_id">
+                    <span
+                        class="label"
+                        v-for="(item, tag_id) in current_categories[index]"
+                        v-bind:key="tag_id">
                         {{ item }}
                     </span>
                     <span v-if="item.category_id.length < 1" class="empty-label"></span>
