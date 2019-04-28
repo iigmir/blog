@@ -1,9 +1,8 @@
 <template>
     <div class="is-navbar-container">
         <div class="is-brand">
-            <!-- <b class="is-logo"><router-link to="/">My Blog</router-link></b> -->
             <h1 class="is-logo">
-                <router-link to="/">My Blog</router-link>
+                <router-link to="/"> My Web Blog </router-link>
             </h1>
         </div>
         <div class="is-navbar">
