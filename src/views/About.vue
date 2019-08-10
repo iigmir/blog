@@ -1,8 +1,5 @@
 <template>
     <main id="about">
-        <p> Hello, this is iigmir, and here's my blog. </p>
-        <p> I am a web developer. Mostly focus on front-end development, but I also like back-end development. </p>
-        <p> This blog, is about processes of my web development. </p>
-        <a href="https://github.com/iigmir/blog" target="_blank">Source code</a>
+        <p> Hello, I am iigmir, whi is a web developer. This blog about my notes of web development. Mostly focus on front-end development, but there may have other things. </p>
     </main>
 </template>

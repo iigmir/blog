@@ -69,9 +69,9 @@ export default new Vuex.Store({
         },
         ajax_get_article({ commit }, input_id)
         {
-            let gap = ["","00","0"];
-            let filename = gap[ String(input_id).length ] + String(input_id) + ".md";
-            let api = `${ repo_api }articles/${ filename }`;
+            // If it's "1" or "23", add zero prefix in variable number_of_article.
+            let number_of_article = ["","00","0"][ String(input_id).length ] || "";
+            let api = `${ repo_api }articles/${ number_of_article + String(input_id) }.md`;
             let ajax = axios.get( api );
             ajax.then( response => commit("set_article", response.data ) );
             ajax.finally( () => commit("set_data_loading", false ) );
