@@ -11,7 +11,7 @@
                     {{ item }}
                 </router-link>
             </span>
-            <vue-markdown :source="article_centent"></vue-markdown>
+            <vue-markdown :source="article"></vue-markdown>
         </article>
     </main>
 </template>
@@ -24,8 +24,8 @@ export default {
     name: "Article",
     components: { VueMarkdown },
     computed: {
-        ...mapState(["article_centent", "categories", "contents"]),
-        article_empty() { return this.article_centent === ""; },
+        ...mapState(["article", "categories", "contents"]),
+        article_empty() { return this.article === ""; },
         article_info()  { return this.contents.filter( a => a.id === parseInt( this.$route.params.id, 10 ) )[0]; },
         article_exist() { return this.article_info !== undefined },
         current_categories()
@@ -41,7 +41,7 @@ export default {
     },
     methods:
     {
-        ...mapMutations(["set_article_centent"]),
+        ...mapMutations(["set_article"]),
         ...mapActions(["ajax_get_article"]),
         tag_link(idx)
         {
@@ -57,7 +57,7 @@ export default {
             this.ajax_get_article( this.$route.params.id );
         }
     },
-    beforeDestroy() { this.set_article_centent(""); }
+    beforeDestroy() { this.set_article(""); }
 }
 </script>
 
