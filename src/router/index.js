@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Main from "../views/Main.vue";
-import Arta from "../views/Arta.vue";
+import Arta from "../views/Article/index.vue";
 import Tags from "../views/Tags.vue";
 
 Vue.use(Router);

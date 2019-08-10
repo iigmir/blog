@@ -13,6 +13,10 @@
             </span>
             <vue-markdown :source="article"></vue-markdown>
         </article>
+        <article v-else>
+            <h2> 載入失敗！ </h2>
+            <p> 可能有很多原因使載入失敗，要不要<router-link to="/">回首頁</router-link>看其他文章？ </p>
+        </article>
     </main>
 </template>
 
