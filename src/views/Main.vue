@@ -14,7 +14,7 @@
                 </section>
             </article>
         </div>
-        <div class="article-container">
+        <div v-else class="article-container">
             <p> 抱歉，外部資料載入失敗。一段時間後，再回來看吧？ </p>
         </div>
         <footpage-pager />
