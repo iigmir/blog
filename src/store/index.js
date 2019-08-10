@@ -64,11 +64,8 @@ export default new Vuex.Store({
         {
             let api = repo_api + "info-files/contents.json";
             let ajax = axios.get( api );
-            ajax.then( response =>
-            {
-                commit("set_contents", response.data );
-                commit("set_data_loading", false );
-            });
+            ajax.then( response => commit("set_contents", response.data ) );
+            ajax.finally( () => commit("set_data_loading", false ) );
         },
         ajax_get_article({ commit }, input_id)
         {
@@ -76,18 +73,8 @@ export default new Vuex.Store({
             let filename = gap[ String(input_id).length ] + String(input_id) + ".md";
             let api = `${ repo_api }articles/${ filename }`;
             let ajax = axios.get( api );
-            ajax.then( response =>
-            {
-                commit("set_article", response.data );
-                commit("set_data_loading", false );
-            });
-            ajax.catch( response =>
-            {
-                console.log( response );
-                debugger;
-                // commit("set_article", response.data );
-                // commit("set_data_loading", false );
-            });
+            ajax.then( response => commit("set_article", response.data ) );
+            ajax.finally( () => commit("set_data_loading", false ) );
         }
     }
 });

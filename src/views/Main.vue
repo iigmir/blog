@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="article-container">
+        <div v-if="contents.length > 0" class="article-container">
             <article class="card" v-for="(item, index) in current_articles" :key="item.id">
                 <section v-on:click="read_article(item.id)">
                     <h2> {{ item.title }} </h2>
@@ -13,6 +13,9 @@
                     <span v-if="item.category_id.length < 1" class="empty-label"></span>
                 </section>
             </article>
+        </div>
+        <div class="article-container">
+            <p> 抱歉，外部資料載入失敗。一段時間後，再回來看吧？ </p>
         </div>
         <footpage-pager />
     </main>
