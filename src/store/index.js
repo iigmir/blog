@@ -13,7 +13,7 @@ export default new Vuex.Store({
         contents: [],
         article: "",
         main_page_index: 0,
-        data_loading: false,
+        data_loading: true,
     },
     getters:
     {
@@ -33,7 +33,7 @@ export default new Vuex.Store({
     {
         set_categories(state, objects)
         {
-            state.categories =  objects;
+            state.categories = objects;
         },
         set_contents(state, objects)
         {
@@ -73,6 +73,7 @@ export default new Vuex.Store({
             let number_of_article = ["","00","0"][ String(input_id).length ] || "";
             let api = `${ repo_api }articles/${ number_of_article + String(input_id) }.md`;
             let ajax = axios.get( api );
+            commit("set_data_loading", true );
             ajax.then( response => commit("set_article", response.data ) );
             ajax.finally( () => commit("set_data_loading", false ) );
         }

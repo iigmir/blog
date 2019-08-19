@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import FootpagePager from "../components/FooterPager.vue";
 
 export default {
@@ -67,11 +67,9 @@ export default {
     },
     methods:
     {
-        ...mapActions(["ajax_get_article","set_data_loading"]),
-        ...mapMutations(["set_data_loading"]),
+        ...mapActions(["ajax_get_article"]),
         read_article(id)
         {
-            this.set_data_loading(true);
             this.ajax_get_article(id);
             this.$router.push({ name: "Article", params: { id } });
         }
