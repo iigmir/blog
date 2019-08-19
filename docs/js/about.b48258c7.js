@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(e,t,n){"use strict";n.r(t);var o=function(){var e=this,t=e.$createElement;e._self._c;return e._m(0)},a=[function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("main",{attrs:{id:"about"}},[n("p",[e._v(" Hello, I am iigmir, whi is a web developer. This blog about my notes of web development. Mostly focus on front-end development, but there may have other things. ")])])}],l=n("2877"),r={},i=Object(l["a"])(r,o,a,!1,null,null,null);t["default"]=i.exports}}]);
-//# sourceMappingURL=about.5fde09cc.js.map
+//# sourceMappingURL=about.b48258c7.js.map
