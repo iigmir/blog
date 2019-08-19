@@ -1,8 +1,10 @@
 <template>
     <main>
         <article v-if="article_exist === true && article_empty === false">
-            <h2> {{ article_info.title }} </h2>
-            <span>
+            <div class="article-gap">
+                <h2> {{ article_info.title }} </h2>
+            </div>
+            <div class="article-gap">
                 <router-link
                     class="label"
                     v-for="(item, tag_id) in current_categories"
@@ -10,12 +12,16 @@
                     v-bind:to="tag_link(tag_id)">
                     {{ item }}
                 </router-link>
-            </span>
-            <vue-markdown :source="article"></vue-markdown>
+            </div>
+            <div class="article-gap">
+                <vue-markdown :source="article"></vue-markdown>
+            </div>
         </article>
         <article v-else>
-            <h2> 載入失敗！ </h2>
-            <p> 可能有很多原因使載入失敗，要不要<router-link to="/">回首頁</router-link>看其他文章？ </p>
+            <div class="article-gap">
+                <h2> 載入失敗！ </h2>
+                <p> 可能有很多原因使載入失敗，要不要<router-link to="/">回首頁</router-link>看其他文章？ </p>
+            </div>
         </article>
     </main>
 </template>
@@ -74,5 +80,10 @@ h2
 .label
 {
     margin: 0.2rem;
+}
+
+.article-gap
+{
+    margin-bottom: 0.5rem;
 }
 </style>
