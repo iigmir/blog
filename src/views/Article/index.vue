@@ -13,6 +13,9 @@
                     {{ item }}
                 </router-link>
             </div>
+            <p v-if="commit_date.status !== 0">
+                <small>文章最初於 {{ commit_date.first }} 發表，最近一次修改為 {{ commit_date.last }}。</small>
+            </p>
             <div class="article-gap">
                 <vue-markdown :source="article"></vue-markdown>
             </div>
@@ -34,7 +37,7 @@ export default {
     name: "Article",
     components: { VueMarkdown },
     computed: {
-        ...mapState(["article", "categories", "contents"]),
+        ...mapState(["article", "categories", "contents", "fileinfo"]),
         article_empty() { return this.article === ""; },
         article_info()  { return this.contents.filter( a => a.id === parseInt( this.$route.params.id, 10 ) )[0]; },
         article_exist() { return this.article_info !== undefined },
@@ -47,12 +50,41 @@ export default {
                 tags = this.article_info.category_id.map( cat_id => this.categories.filter( tag => cat_id === tag.id )[0].tag_name );
             }
             return tags;
+        },
+        commit_date()
+        {
+            let first, last, status = 0;
+            if(
+                Object.prototype.hasOwnProperty.call( this.article_info, "created_at" ) &&
+                Object.prototype.hasOwnProperty.call( this.article_info, "updated_at" )
+            )
+            {
+                first = new Date( this.article_info.created_at ).toLocaleString();
+                last  = new Date( this.article_info.updated_at ).toLocaleString();
+                status = 2;
+            }
+            else
+            {
+                if( this.fileinfo.length > 1 )
+                {
+                    first = new Date( this.fileinfo[ this.fileinfo.length - 1 ].commit.author.date ).toLocaleString();
+                    last  = new Date( this.fileinfo[ 0 ].commit.author.date ).toLocaleString();
+                    status = 2;
+                }
+                else if( this.fileinfo.length === 1 )
+                {
+                    first = new Date( this.fileinfo[ 0 ].commit.author.date ).toLocaleString();
+                    last  = new Date( this.fileinfo[ 0 ].commit.author.date ).toLocaleString();
+                    status = 1;
+                }
+            }
+            return { first, last, status };
         }
     },
     methods:
     {
         ...mapMutations(["set_article"]),
-        ...mapActions(["ajax_get_article"]),
+        ...mapActions(["request_article"]),
         tag_link(idx)
         {
             let name = "Tags";
@@ -64,7 +96,7 @@ export default {
     {
         if( this.article_empty )
         {
-            this.ajax_get_article( this.$route.params.id );
+            this.request_article( this.$route.params.id );
         }
     },
     beforeDestroy() { this.set_article(""); }

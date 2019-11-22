@@ -5,8 +5,8 @@
             <div class="modal-header">{{ tag.tag_name }} 的文章：</div>
             <div class="modal-body">
                 <ol>
-                    <li v-for="article in articles_has_current_tag" :key="article.id">
-                        <router-link :to="{ name: 'Article', params: { id: article.id } }">
+                    <li v-for="article in articles_has_current_tag" v-bind:key="article.id">
+                        <router-link v-bind:to="{ name: 'Article', params: { id: article.id } }">
                             {{ article.title }}
                         </router-link>
                     </li>
@@ -27,10 +27,7 @@ export default {
             type: Object,
             default: function()
             {
-                return {
-                    tag_name: "",
-                    id: null
-                };
+                return { tag_name: "", id: null };
             },
         },
     },

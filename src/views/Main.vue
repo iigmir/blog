@@ -1,13 +1,10 @@
 <template>
     <main>
         <div v-if="contents.length > 0" class="article-container">
-            <article class="card" v-for="(item, index) in current_articles" :key="item.id">
+            <article class="card" v-for="(item, index) in current_articles" v-bind:key="item.id">
                 <section v-on:click="read_article(item.id)">
                     <h2> {{ item.title }} </h2>
-                    <span
-                        class="label"
-                        v-for="(item, tag_id) in current_categories[index]"
-                        v-bind:key="tag_id">
+                    <span class="label" v-for="(item, tag_id) in current_categories[index]" v-bind:key="tag_id">
                         {{ item }}
                     </span>
                     <span v-if="item.category_id.length < 1" class="empty-label"></span>
@@ -67,10 +64,10 @@ export default {
     },
     methods:
     {
-        ...mapActions(["ajax_get_article"]),
+        ...mapActions(["request_article"]),
         read_article(id)
         {
-            this.ajax_get_article(id);
+            this.request_article(id);
             this.$router.push({ name: "Article", params: { id } });
         }
     }
