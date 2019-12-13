@@ -2,7 +2,7 @@
     <div class="is-navbar-container">
         <div class="is-brand">
             <h1 class="is-logo">
-                <router-link to="/"> My Web Blog </router-link>
+                <router-link to="/">露比的銳思</router-link>
             </h1>
         </div>
         <div class="is-navbar">
