@@ -1,33 +1,20 @@
 <template>
-    <div class="is-navbar-container">
-        <div class="is-brand">
-            <p class="title is-logo">
-                <router-link to="/">露比的銳思</router-link>
-            </p>
-        </div>
-        <div class="is-navbar">
-            <nav>
-                <ul>
-                    <li><router-link to="/about">About</router-link></li>
-                    <li><router-link to="/tags">Tags</router-link></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <nav class="is-navbar">
+        <ul>
+            <li><router-link to="/">露比的銳思</router-link></li>
+            <li><router-link to="/tags">標籤</router-link></li>
+        </ul>
+    </nav>
 </template>
 
 <style lang="scss" scoped>
-.is-navbar-container
+.is-navbar
 {
-    margin: 1.2rem;
-}
-
-.is-brand .title
-{
-    font-size: 1.8rem;
+    padding: 1.2rem;
+    background-color: #111;
     a
     {
-        color: black;
+        color: #EEE;
         &:hover { color: #ee2455; }
     }
 }

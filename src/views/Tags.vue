@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="tags-container">
         <TagListModal
             v-if="modal_flag === true"
             v-bind:tag="selected_tag"
@@ -74,6 +74,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tags-container
+{
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+}
 .button
 {
     margin: 0.3rem;

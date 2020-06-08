@@ -147,20 +147,6 @@ article
     }
 }
 
-.pager
-{
-    position: fixed;
-    bottom: 0;
-    a
-    {
-        cursor: pointer;
-        &.is-active
-        {
-            cursor: not-allowed;
-        }
-    }
-}
-
 .label
 {
     margin: 0.5rem;
@@ -170,11 +156,6 @@ article
 {
     margin: 0.5rem;
     padding: 2px 8px;
-}
-
-.article-container
-{
-    margin-bottom: 6rem;
 }
 
 @media only screen and (max-width: 767px)

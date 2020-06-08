@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="article-container">
         <article v-if="article_exist === true && article_empty === false">
             <div class="article-gap">
                 <router-link
@@ -101,6 +101,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.article-container
+{
+    margin-left: 2rem;
+}
 h2
 {
     font-size: 2em;
@@ -113,6 +117,7 @@ h2
 
 .article-gap
 {
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 </style>

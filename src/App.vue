@@ -1,8 +1,11 @@
 <template>
-    <div id="app" class="is-container-large">
+    <div id="app">
         <loading-modal />
         <Navigator />
-        <router-view />
+        <!-- <router-view /> -->
+        <div class="aside-container-large">
+            <router-view />
+        </div>
     </div>
 </template>
 
