@@ -11,11 +11,15 @@
 .is-navbar
 {
     padding: 1.2rem;
-    background-color: #111;
-    a
+    
+}
+
+@media (prefers-color-scheme: dark)
+{
+    .is-navbar
     {
-        color: #EEE;
-        &:hover { color: #ee2455; }
+        background-color: #111;
+        a { color: #EEE; &:hover { color: #ee2455; } }
     }
 }
 </style>

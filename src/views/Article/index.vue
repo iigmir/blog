@@ -1,6 +1,6 @@
 <template>
     <main class="article-container">
-        <article v-if="article_exist === true && article_empty === false">
+        <article v-if="article_exist && !article_empty">
             <div class="article-gap">
                 <router-link
                     class="label"
@@ -14,7 +14,7 @@
                 <small>文章最初於 {{ commit_date.first }} 發表，最近一次修改為 {{ commit_date.last }}。</small>
             </p>
             <div class="article-gap">
-                <vue-markdown :source="article"></vue-markdown>
+                <vue-markdown v-bind:source="article"></vue-markdown>
             </div>
         </article>
         <article v-else>
@@ -33,20 +33,20 @@ import VueMarkdown from "vue-markdown";
 export default {
     name: "Article",
     components: { VueMarkdown },
-    computed: {
+    computed:
+    {
         ...mapState(["article", "categories", "contents", "fileinfo"]),
         article_empty() { return this.article === ""; },
         article_info()  { return this.contents.filter( a => a.id === parseInt( this.$route.params.id, 10 ) )[0]; },
         article_exist() { return this.article_info !== undefined },
         current_categories()
         {
-            let article_and_category_exist = this.article_exist && this.categories.length > 0;
-            let tags = [];
+            const article_and_category_exist = this.article_exist && this.categories.length > 0;
             if( article_and_category_exist )
             {
-                tags = this.article_info.category_id.map( cat_id => this.categories.filter( tag => cat_id === tag.id )[0].tag_name );
+                return this.article_info.category_id.map( cat_id => this.categories.filter( tag => cat_id === tag.id )[0].tag_name );
             }
-            return tags;
+            return [];
         },
         commit_date()
         {
@@ -96,7 +96,10 @@ export default {
             this.request_article( this.$route.params.id );
         }
     },
-    beforeDestroy() { this.set_article(""); }
+    beforeDestroy()
+    {
+        this.set_article("");
+    }
 }
 </script>
 

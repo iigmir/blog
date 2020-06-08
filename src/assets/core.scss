@@ -23,3 +23,46 @@
 {   // Is mobile
     main { margin: 1rem; }
 }
+
+@media (prefers-color-scheme: dark)
+{
+    :root {
+        --text-colour: #bbbbbb;
+        --pager-colour: #fafafa;
+    }
+    
+    body
+    {
+        background-color: #263238;
+        color: var(--text-colour);
+    }
+    small { color: var(--text-colour); }
+    h1, h2, h3 { color: #eaeaea; }
+    code { color: #f92672; }
+    pre
+    {
+        background-color: #000000;
+        code { color: var(--pager-colour); }
+    }
+    .pager a,
+    .pager span,
+    .pager a:last-child,
+    .pager span:last-child
+    {
+        border-color: var(--pager-colour);
+    }
+    .pager a,
+    .pager span
+    {
+        color: var(--pager-colour);
+        &.is-active
+        {
+            color: #f92672;
+            background-color: var(--pager-colour);
+        }
+    }
+    .pager a.is-disabled
+    {
+        color: #000000;
+    }
+}
