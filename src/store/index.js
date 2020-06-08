@@ -67,14 +67,14 @@ export default new Vuex.Store({
         },
         ajax_get_contents({ commit })
         {
-            let api = repo_api + "/info-files/contents.json";
+            let api = repo_api + "/info-files/new-category-ids.json";
             let ajax = axios.get( api );
             ajax.then( response => commit("set_contents", response.data ) );
             ajax.finally( () => commit("set_data_loading") );
         },
         ajax_get_article({ commit }, input_id)
         {
-            let ajax = axios.get(`${ repo_api }/articles/${ String(input_id) }.md`);
+            let ajax = axios.get(`${ repo_api }/new-articles/${ String(input_id) }.md`);
             commit("set_data_loading", true );
             ajax.then( response => commit("set_article", response.data ) );
             ajax.finally( () => commit("set_data_loading") );

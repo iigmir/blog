@@ -2,9 +2,6 @@
     <main>
         <article v-if="article_exist === true && article_empty === false">
             <div class="article-gap">
-                <h2> {{ article_info.title }} </h2>
-            </div>
-            <div class="article-gap">
                 <router-link
                     class="label"
                     v-for="(item, tag_id) in current_categories"

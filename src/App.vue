@@ -2,7 +2,7 @@
     <div id="app" class="is-container-large">
         <loading-modal />
         <Navigator />
-        <router-view/>
+        <router-view />
     </div>
 </template>
 

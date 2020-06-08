@@ -1,9 +1,9 @@
 <template>
     <div class="is-navbar-container">
         <div class="is-brand">
-            <h1 class="is-logo">
+            <p class="title is-logo">
                 <router-link to="/">露比的銳思</router-link>
-            </h1>
+            </p>
         </div>
         <div class="is-navbar">
             <nav>
@@ -22,7 +22,7 @@
     margin: 1.2rem;
 }
 
-.is-brand h1
+.is-brand .title
 {
     font-size: 1.8rem;
     a
